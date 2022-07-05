@@ -9,6 +9,16 @@ class Post extends Model
 {
     public static function newSlug($string){
         $slug = Str::slug($string, '-');
+        $slug_copy = $slug;
+
+        $flag = Post::where('slug', $slug)->first();
+        $c=1;
+
+        while($flag){
+            $slug = $slug_copy . '-' .$c;       
+            $c++;
+            $flag = Post::where('slug', $slug)->first();
+        }
 
         return $slug;
 

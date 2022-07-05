@@ -17,9 +17,11 @@ class PostsTableSeeder extends Seeder
     {
         for($i = 0; $i <5; $i++){
             $new_post = new Post();
-            $new_post->title = 'ciao ciaone';
+            $new_post->title = $faker->sentence();
             $new_post->slug = Post::newSlug($new_post->title);
-            dump($new_post->slug);
+            $new_post->content = $faker->text();
+            $new_post->save();
+            
         }
     }
 }
