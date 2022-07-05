@@ -4,8 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-body">
+            
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
@@ -13,13 +12,23 @@
                     @endif
                     
                     @foreach($posts as $post)
-                        <div>
+                    <div class="card m-3">
+                      <div class="card-body">
+                        <h5>
                           {{$post->title}}
+                        </h5>
+                        <p>
+                          {{$post->content}}
+                        </p>
+                        <div class="text-right"> 
+                          <a class="btn btn-primary m-1" href="#">Show</a>
+                          <a class="btn btn-primary m-1" href="#">Edit</a>
                         </div>
+                      </div>
+                    </div>
                       
                     @endforeach
-                </div>
-            </div>
+              
         </div>
     </div>
 </div>
