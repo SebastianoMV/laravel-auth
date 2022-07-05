@@ -3,8 +3,14 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Post extends Model
 {
-    //
+    public static function newSlug($string){
+        $slug = Str::slug($string, '-');
+
+        return $slug;
+
+    }
 }
