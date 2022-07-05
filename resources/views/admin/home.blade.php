@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    Sei loggato
+                    Sei loggato {{Auth::user()->name}}
                 </div>
             </div>
         </div>
