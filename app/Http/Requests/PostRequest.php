@@ -28,4 +28,15 @@ class PostRequest extends FormRequest
             'content' => 'required|min:5',
         ];
     }
+
+    public function messages(){
+        return [
+            'title.required' => 'Il campo title è obbligatorio',
+            'title.max' => 'Il campo title deve avere al massimo :max caratteri',
+            'title.min' => 'Il campo title deve avere al minimo :min caratteri',
+            'content.required' => 'Il campo content è obbligatorio',
+            'content.min' => 'Il campo content deve avere al minimo :min caratteri',
+        ];
+
+    }
 }
