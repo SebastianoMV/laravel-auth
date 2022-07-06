@@ -21,13 +21,19 @@
                           {{$post->content}}
                         </p>
                         <div class="text-right"> 
-                          <a class="btn btn-primary m-1" href="#">Show</a>
+                          <a class="btn btn-primary m-1" href="{{ route('admin.posts.show', $post)}}">Show</a>
                           <a class="btn btn-primary m-1" href="#">Edit</a>
                         </div>
                       </div>
                     </div>
                       
                     @endforeach
+                    <div class="m-3">
+                      {{$posts->links() }}
+                    </div>
+                    <a class="btn btn-primary m-1" href="{{ route('admin.posts.create')}}">Create</a>
+                    
+        
               
         </div>
     </div>
