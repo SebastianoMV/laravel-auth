@@ -7,18 +7,21 @@
           @if($errors->any())
           <div class="container alert alert-danger" role="alert">
             @foreach($errors->all() as $error)
-              <div>{{$error}}</div>   
+              <div>
+                {{$error}}
+              </div>   
             @endforeach
           </div>
           @endif
 
-          <form action="{{ route('admin.posts.store') }}" method="POST">
+          <form action="{{ route('admin.posts.update', $post)}}" method="POST">
 
             @csrf
+            @method('PUT')
             <div class="form-group">
               <label for="title">Title</label>
               <input type="text" 
-              value="{{old('title')}}"
+              value="{{old('title', $post->title)}}"
               class="form-control @error('title') is-invalid @enderror"  name="title" id="title" placeholder="Enter title" >
               @error('title')
                 <p class="error-msg">{{$message}}</p>
@@ -27,7 +30,7 @@
             <div class="form-group">
               <label for="content">Content</label>
               <input type="text" 
-              value="{{old('content')}}" class="form-control @error('content') is-invalid @enderror" name="content" id="content" placeholder="content">
+              value="{{old('content', $post->content)}}" class="form-control @error('content') is-invalid @enderror" name="content" id="content" placeholder="content">
               @error('content')
                 <p class="error-msg">{{$message}}</p>
               @enderror

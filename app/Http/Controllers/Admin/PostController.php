@@ -70,7 +70,9 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::find($id);
+
+        return view('admin.posts.edit', compact('post'));
     }
 
     /**
@@ -82,7 +84,12 @@ class PostController extends Controller
      */
     public function update(PostRequest $request, $id)
     {
-        //
+        $data = $request->all();
+        $data['slug'] = Post::newSlug($data['title']);
+
+        $post->update($data);
+
+        return redirect()->route('admin.posts.index', $post);
     }
 
     /**

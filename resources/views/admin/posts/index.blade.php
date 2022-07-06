@@ -7,7 +7,7 @@
             
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
+                            {{session('status')}}
                         </div>
                     @endif
                     
@@ -22,7 +22,7 @@
                         </p>
                         <div class="text-right"> 
                           <a class="btn btn-primary m-1" href="{{ route('admin.posts.show', $post)}}">Show</a>
-                          <a class="btn btn-primary m-1" href="#">Edit</a>
+                          <a class="btn btn-primary m-1" href="{{ route('admin.posts.edit', $post)}}">Edit</a>
                         </div>
                       </div>
                     </div>
